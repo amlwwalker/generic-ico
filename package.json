@@ -4,6 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "openzeppelin-solidity": "^1.12.0"
+    "openzeppelin-solidity": "^1.12.0",
+    "truffle": "^5.0.0-beta.0",
+    "web3": "^1.0.0-beta.35"
   }
 }
