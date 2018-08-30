@@ -8,8 +8,8 @@ require("chai")
   .use(chaiAsPromised)
   .should()
 
-const PracticalCrowdsale = artifacts.require("PracticalCrowdsale")
-const PracticalToken = artifacts.require("PracticalToken")
+const Crowdsale = artifacts.require("GenericWhitelistedCrowdsale")
+const Token = artifacts.require("GenericToken")
 
 contract("Practical Crowdsale", async function([
   creator,
@@ -19,50 +19,29 @@ contract("Practical Crowdsale", async function([
   investor,
   ...addresses
 ]) {
-  this.timeout = 10000
+  // this.timeout = 10000
 
   before(async function() {
     // await advanceBlock()
   })
 
   beforeEach(async function() {
-    const now = Math.floor(Date.now() / 1000)
-    const day = 24 * 60 * 60
-
-    const openingTime = new BN(now)
-    const closingTime = new BN(now + 2 * day)
     const rate = new BN(1)
     const decimals = new BN(18)
     const totalSupplyWholeDigits = new BN(21000000)
 
     this.totalSupply = totalSupplyWholeDigits.mul(new BN(10).pow(decimals))
-    const doll_conv = 280
-    const max_$ = 10000
-    const eth_cap = max_$ / doll_conv
-    const cap = web3.utils.toWei(new BN(eth_cap), "ether")
-    const softCap = cap.div(new BN(2)) //half the cap
-    // console.log("cap in wei is " + cap)
-
-    this.token = await PracticalToken.new(
-      "PracticalToken",
-      "PRACT",
+    this.token = await Token.new(
+      "GenericWhitelistedToken",
+      "GENWLTOK",
       decimals,
       totalSupplyWholeDigits
     )
-    this.crowdsale = await PracticalCrowdsale.new(
-      rate,
-      creator,
-      this.token.address,
-      cap,
-      softCap,
-      openingTime,
-      closingTime
-    )
+    this.crowdsale = await Crowdsale.new(rate, creator, this.token.address)
     await this.token.transfer(this.crowdsale.address, this.totalSupply)
   })
 
   describe("inheritance", function() {
-    //whitelist inheritance
     it("should inherit from WhitelistedCrowdsale", function() {
       expect(this.crowdsale.addAddressToWhitelist).to.be.a("function")
       expect(this.crowdsale.addAddressesToWhitelist).to.be.a("function")
@@ -70,10 +49,6 @@ contract("Practical Crowdsale", async function([
       expect(this.crowdsale.removeAddressesFromWhitelist).to.be.a("function")
       expect(this.crowdsale.whitelist).to.be.a("function")
     })
-    //capped inheritance
-    //ownable inheritance
-    //Timed inheritance
-    //Refundable inheritance
   })
 
   describe("check defaults", async function() {
