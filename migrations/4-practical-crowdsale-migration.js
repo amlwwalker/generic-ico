@@ -17,7 +17,7 @@ module.exports = async (deployer, network, [owner]) => {
   const now = Math.floor(Date.now() / 1000)
   const day = 24 * 60 * 60
 
-  const openingTime = new BN(now)
+  const openingTime = new BN(now + 240)
   const closingTime = new BN(now + 2 * day)
   const rate = new BN(1000)
   const decimals = new BN(18)
@@ -54,9 +54,9 @@ module.exports = async (deployer, network, [owner]) => {
     owner,
     token.address,
     cap,
-    softCap,
-    openingTime,
-    closingTime
+    softCap
+    // openingTime,
+    // closingTime
   )
   const crowdsale = await PracticalCrowdsale.deployed()
   //the crowd sale now owns, and has full control of all the tokens

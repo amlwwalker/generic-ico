@@ -13,8 +13,7 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function",
-      "signature": "0x1515bc2b"
+      "type": "function"
     },
     {
       "constant": true,
@@ -28,8 +27,7 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function",
-      "signature": "0x2c4e722e"
+      "type": "function"
     },
     {
       "constant": true,
@@ -43,8 +41,7 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function",
-      "signature": "0x4042b66f"
+      "type": "function"
     },
     {
       "constant": true,
@@ -58,8 +55,7 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function",
-      "signature": "0x4b6753bc"
+      "type": "function"
     },
     {
       "constant": true,
@@ -73,8 +69,7 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function",
-      "signature": "0x521eb273"
+      "type": "function"
     },
     {
       "constant": true,
@@ -88,8 +83,7 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function",
-      "signature": "0xb7a8807c"
+      "type": "function"
     },
     {
       "constant": false,
@@ -103,8 +97,7 @@
       "outputs": [],
       "payable": true,
       "stateMutability": "payable",
-      "type": "function",
-      "signature": "0xec8ac4d8"
+      "type": "function"
     },
     {
       "constant": true,
@@ -118,8 +111,7 @@
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function",
-      "signature": "0xfc0c546a"
+      "type": "function"
     },
     {
       "inputs": [
@@ -146,8 +138,7 @@
       ],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "constructor",
-      "signature": "constructor"
+      "type": "constructor"
     },
     {
       "payable": true,
@@ -179,8 +170,7 @@
         }
       ],
       "name": "TokenPurchase",
-      "type": "event",
-      "signature": "0x623b3804fa71d67900d064613da8f94b9617215ee90799290593e1745087ad18"
+      "type": "event"
     }
   ],
   "bytecode": "0x608060405234801561001057600080fd5b5060405160a0806108f58339810180604052810190808051906020019092919080519060200190929190805190602001909291908051906020019092919080519060200190929190505050848484848460008311151561006f57600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168273ffffffffffffffffffffffffffffffffffffffff16141515156100ab57600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff16141515156100e757600080fd5b8260028190555081600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505050504282101515156101ea576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260188152602001807f6f70656e696e672074696d6520696e207468652070617374000000000000000081525060200191505060405180910390fd5b818110151515610262576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260188152602001807f636c6f73696e672074696d6520696e207468652070617374000000000000000081525060200191505060405180910390fd5b81600481905550806005819055505050505050505061066f806102866000396000f30060806040526004361061008e576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680631515bc2b146100995780632c4e722e146100c85780634042b66f146100f35780634b6753bc1461011e578063521eb27314610149578063b7a8807c146101a0578063ec8ac4d8146101cb578063fc0c546a14610201575b61009733610258565b005b3480156100a557600080fd5b506100ae610326565b604051808215151515815260200191505060405180910390f35b3480156100d457600080fd5b506100dd610332565b6040518082815260200191505060405180910390f35b3480156100ff57600080fd5b50610108610338565b6040518082815260200191505060405180910390f35b34801561012a57600080fd5b5061013361033e565b6040518082815260200191505060405180910390f35b34801561015557600080fd5b5061015e610344565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156101ac57600080fd5b506101b561036a565b6040518082815260200191505060405180910390f35b6101ff600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610258565b005b34801561020d57600080fd5b50610216610370565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000803491506102688383610395565b610271826103c2565b9050610288826003546103e090919063ffffffff16565b60038190555061029883826103fc565b8273ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167f623b3804fa71d67900d064613da8f94b9617215ee90799290593e1745087ad188484604051808381526020018281526020019250505060405180910390a361030f838361040a565b61031761040e565b6103218383610479565b505050565b60006005544211905090565b60025481565b60035481565b60055481565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60045481565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60045442101580156103a957506005544211155b15156103b457600080fd5b6103be828261047d565b5050565b60006103d9600254836104cd90919063ffffffff16565b9050919050565b600081830190508281101515156103f357fe5b80905092915050565b6104068282610505565b5050565b5050565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc349081150290604051600060405180830381858888f19350505050158015610476573d6000803e3d6000fd5b50565b5050565b600073ffffffffffffffffffffffffffffffffffffffff168273ffffffffffffffffffffffffffffffffffffffff16141515156104b957600080fd5b600081141515156104c957600080fd5b5050565b6000808314156104e057600090506104ff565b81830290508183828115156104f157fe5b041415156104fb57fe5b8090505b92915050565b61055182826000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166105559092919063ffffffff16565b5050565b8273ffffffffffffffffffffffffffffffffffffffff1663a9059cbb83836040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200182815260200192505050602060405180830381600087803b1580156105f857600080fd5b505af115801561060c573d6000803e3d6000fd5b505050506040513d602081101561062257600080fd5b8101908080519060200190929190505050151561063e57600080fd5b5050505600a165627a7a723058203c9e67cc4829f45d1bddf53a70306a54fd41f09cffad1b9aa3f60ab833c806c40029",
@@ -216,7 +206,7 @@
         "id": 55,
         "nodeType": "ImportDirective",
         "scope": 83,
-        "sourceUnit": 2077,
+        "sourceUnit": 2063,
         "src": "26:63:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -227,7 +217,7 @@
         "id": 56,
         "nodeType": "ImportDirective",
         "scope": 83,
-        "sourceUnit": 1161,
+        "sourceUnit": 1147,
         "src": "90:81:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -241,10 +231,10 @@
               "id": 57,
               "name": "TimedCrowdsale",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1160,
+              "referencedDeclaration": 1146,
               "src": "207:14:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_TimedCrowdsale_$1160",
+                "typeIdentifier": "t_contract$_TimedCrowdsale_$1146",
                 "typeString": "contract TimedCrowdsale"
               }
             },
@@ -254,8 +244,8 @@
           }
         ],
         "contractDependencies": [
-          855,
-          1160
+          841,
+          1146
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -263,8 +253,8 @@
         "id": 82,
         "linearizedBaseContracts": [
           82,
-          1160,
-          855
+          1146,
+          841
         ],
         "name": "GenericTimedCrowdsale",
         "nodeType": "ContractDefinition",
@@ -319,7 +309,7 @@
                     "referencedDeclaration": 68,
                     "src": "385:6:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ERC20_$2076",
+                      "typeIdentifier": "t_contract$_ERC20_$2062",
                       "typeString": "contract ERC20"
                     }
                   }
@@ -331,10 +321,10 @@
                   "name": "Crowdsale",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 855,
+                  "referencedDeclaration": 841,
                   "src": "359:9:1",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_type$_t_contract$_Crowdsale_$855_$",
+                    "typeIdentifier": "t_type$_t_contract$_Crowdsale_$841_$",
                     "typeString": "type(contract Crowdsale)"
                   }
                 },
@@ -377,10 +367,10 @@
                   "name": "TimedCrowdsale",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1160,
+                  "referencedDeclaration": 1146,
                   "src": "397:14:1",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_type$_t_contract$_TimedCrowdsale_$1160_$",
+                    "typeIdentifier": "t_type$_t_contract$_TimedCrowdsale_$1146_$",
                     "typeString": "type(contract TimedCrowdsale)"
                   }
                 },
@@ -508,7 +498,7 @@
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_ERC20_$2076",
+                    "typeIdentifier": "t_contract$_ERC20_$2062",
                     "typeString": "contract ERC20"
                   },
                   "typeName": {
@@ -516,10 +506,10 @@
                     "id": 67,
                     "name": "ERC20",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 2076,
+                    "referencedDeclaration": 2062,
                     "src": "338:5:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ERC20_$2076",
+                      "typeIdentifier": "t_contract$_ERC20_$2062",
                       "typeString": "contract ERC20"
                     }
                   },
@@ -576,7 +566,7 @@
         "id": 55,
         "nodeType": "ImportDirective",
         "scope": 83,
-        "sourceUnit": 2077,
+        "sourceUnit": 2063,
         "src": "26:63:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -587,7 +577,7 @@
         "id": 56,
         "nodeType": "ImportDirective",
         "scope": 83,
-        "sourceUnit": 1161,
+        "sourceUnit": 1147,
         "src": "90:81:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -601,10 +591,10 @@
               "id": 57,
               "name": "TimedCrowdsale",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1160,
+              "referencedDeclaration": 1146,
               "src": "207:14:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_TimedCrowdsale_$1160",
+                "typeIdentifier": "t_contract$_TimedCrowdsale_$1146",
                 "typeString": "contract TimedCrowdsale"
               }
             },
@@ -614,8 +604,8 @@
           }
         ],
         "contractDependencies": [
-          855,
-          1160
+          841,
+          1146
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -623,8 +613,8 @@
         "id": 82,
         "linearizedBaseContracts": [
           82,
-          1160,
-          855
+          1146,
+          841
         ],
         "name": "GenericTimedCrowdsale",
         "nodeType": "ContractDefinition",
@@ -679,7 +669,7 @@
                     "referencedDeclaration": 68,
                     "src": "385:6:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ERC20_$2076",
+                      "typeIdentifier": "t_contract$_ERC20_$2062",
                       "typeString": "contract ERC20"
                     }
                   }
@@ -691,10 +681,10 @@
                   "name": "Crowdsale",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 855,
+                  "referencedDeclaration": 841,
                   "src": "359:9:1",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_type$_t_contract$_Crowdsale_$855_$",
+                    "typeIdentifier": "t_type$_t_contract$_Crowdsale_$841_$",
                     "typeString": "type(contract Crowdsale)"
                   }
                 },
@@ -737,10 +727,10 @@
                   "name": "TimedCrowdsale",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1160,
+                  "referencedDeclaration": 1146,
                   "src": "397:14:1",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_type$_t_contract$_TimedCrowdsale_$1160_$",
+                    "typeIdentifier": "t_type$_t_contract$_TimedCrowdsale_$1146_$",
                     "typeString": "type(contract TimedCrowdsale)"
                   }
                 },
@@ -868,7 +858,7 @@
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_ERC20_$2076",
+                    "typeIdentifier": "t_contract$_ERC20_$2062",
                     "typeString": "contract ERC20"
                   },
                   "typeName": {
@@ -876,10 +866,10 @@
                     "id": 67,
                     "name": "ERC20",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 2076,
+                    "referencedDeclaration": 2062,
                     "src": "338:5:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ERC20_$2076",
+                      "typeIdentifier": "t_contract$_ERC20_$2062",
                       "typeString": "contract ERC20"
                     }
                   },
@@ -928,5 +918,5 @@
     }
   },
   "schemaVersion": "3.0.0-beta.0",
-  "updatedAt": "2018-08-30T18:43:15.653Z"
+  "updatedAt": "2018-08-30T18:53:04.011Z"
 }

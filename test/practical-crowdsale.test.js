@@ -39,6 +39,7 @@ contract("Practical Crowdsale", async function([
     )
     this.crowdsale = await Crowdsale.new(rate, creator, this.token.address)
     await this.token.transfer(this.crowdsale.address, this.totalSupply)
+    await advanceBlock(web3)
   })
 
   describe("inheritance", function() {

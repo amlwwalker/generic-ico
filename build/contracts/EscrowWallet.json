@@ -276,7 +276,7 @@
         "id": 2,
         "nodeType": "ImportDirective",
         "scope": 53,
-        "sourceUnit": 1904,
+        "sourceUnit": 1890,
         "src": "84:66:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -287,7 +287,7 @@
         "id": 3,
         "nodeType": "ImportDirective",
         "scope": 53,
-        "sourceUnit": 1428,
+        "sourceUnit": 1414,
         "src": "151:63:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -298,7 +298,7 @@
         "id": 4,
         "nodeType": "ImportDirective",
         "scope": 53,
-        "sourceUnit": 1248,
+        "sourceUnit": 1234,
         "src": "215:64:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -312,10 +312,10 @@
               "id": 5,
               "name": "SplitPayment",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1903,
+              "referencedDeclaration": 1889,
               "src": "306:12:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_SplitPayment_$1903",
+                "typeIdentifier": "t_contract$_SplitPayment_$1889",
                 "typeString": "contract SplitPayment"
               }
             },
@@ -330,10 +330,10 @@
               "id": 7,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1427,
+              "referencedDeclaration": 1413,
               "src": "320:7:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$1427",
+                "typeIdentifier": "t_contract$_Ownable_$1413",
                 "typeString": "contract Ownable"
               }
             },
@@ -348,10 +348,10 @@
               "id": 9,
               "name": "Pausable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1247,
+              "referencedDeclaration": 1233,
               "src": "329:8:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Pausable_$1247",
+                "typeIdentifier": "t_contract$_Pausable_$1233",
                 "typeString": "contract Pausable"
               }
             },
@@ -361,9 +361,9 @@
           }
         ],
         "contractDependencies": [
-          1427,
-          1903,
-          1247
+          1233,
+          1413,
+          1889
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -371,9 +371,9 @@
         "id": 52,
         "linearizedBaseContracts": [
           52,
-          1247,
-          1427,
-          1903
+          1233,
+          1413,
+          1889
         ],
         "name": "EscrowWallet",
         "nodeType": "ContractDefinition",
@@ -496,10 +496,10 @@
                   "name": "SplitPayment",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1903,
+                  "referencedDeclaration": 1889,
                   "src": "461:12:0",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_type$_t_contract$_SplitPayment_$1903_$",
+                    "typeIdentifier": "t_type$_t_contract$_SplitPayment_$1889_$",
                     "typeString": "type(contract SplitPayment)"
                   }
                 },
@@ -673,10 +673,10 @@
                         "name": "SplitPayment",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1903,
+                        "referencedDeclaration": 1889,
                         "src": "718:12:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_SplitPayment_$1903_$",
+                          "typeIdentifier": "t_type$_t_contract$_SplitPayment_$1889_$",
                           "typeString": "type(contract SplitPayment)"
                         }
                       },
@@ -687,7 +687,7 @@
                       "lValueRequested": false,
                       "memberName": "claim",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1853,
+                      "referencedDeclaration": 1839,
                       "src": "718:18:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$__$returns$__$",
@@ -724,7 +724,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2432,
+                          "referencedDeclaration": 2418,
                           "src": "760:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -816,7 +816,7 @@
                   "name": "whenNotPaused",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1208,
+                  "referencedDeclaration": 1194,
                   "src": "534:13:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -845,7 +845,7 @@
             "scope": 52,
             "src": "510:274:0",
             "stateMutability": "nonpayable",
-            "superFunction": 1853,
+            "superFunction": 1839,
             "visibility": "public"
           }
         ],
@@ -882,7 +882,7 @@
         "id": 2,
         "nodeType": "ImportDirective",
         "scope": 53,
-        "sourceUnit": 1904,
+        "sourceUnit": 1890,
         "src": "84:66:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -893,7 +893,7 @@
         "id": 3,
         "nodeType": "ImportDirective",
         "scope": 53,
-        "sourceUnit": 1428,
+        "sourceUnit": 1414,
         "src": "151:63:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -904,7 +904,7 @@
         "id": 4,
         "nodeType": "ImportDirective",
         "scope": 53,
-        "sourceUnit": 1248,
+        "sourceUnit": 1234,
         "src": "215:64:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -918,10 +918,10 @@
               "id": 5,
               "name": "SplitPayment",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1903,
+              "referencedDeclaration": 1889,
               "src": "306:12:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_SplitPayment_$1903",
+                "typeIdentifier": "t_contract$_SplitPayment_$1889",
                 "typeString": "contract SplitPayment"
               }
             },
@@ -936,10 +936,10 @@
               "id": 7,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1427,
+              "referencedDeclaration": 1413,
               "src": "320:7:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$1427",
+                "typeIdentifier": "t_contract$_Ownable_$1413",
                 "typeString": "contract Ownable"
               }
             },
@@ -954,10 +954,10 @@
               "id": 9,
               "name": "Pausable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1247,
+              "referencedDeclaration": 1233,
               "src": "329:8:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Pausable_$1247",
+                "typeIdentifier": "t_contract$_Pausable_$1233",
                 "typeString": "contract Pausable"
               }
             },
@@ -967,9 +967,9 @@
           }
         ],
         "contractDependencies": [
-          1427,
-          1903,
-          1247
+          1233,
+          1413,
+          1889
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -977,9 +977,9 @@
         "id": 52,
         "linearizedBaseContracts": [
           52,
-          1247,
-          1427,
-          1903
+          1233,
+          1413,
+          1889
         ],
         "name": "EscrowWallet",
         "nodeType": "ContractDefinition",
@@ -1102,10 +1102,10 @@
                   "name": "SplitPayment",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1903,
+                  "referencedDeclaration": 1889,
                   "src": "461:12:0",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_type$_t_contract$_SplitPayment_$1903_$",
+                    "typeIdentifier": "t_type$_t_contract$_SplitPayment_$1889_$",
                     "typeString": "type(contract SplitPayment)"
                   }
                 },
@@ -1279,10 +1279,10 @@
                         "name": "SplitPayment",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1903,
+                        "referencedDeclaration": 1889,
                         "src": "718:12:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_SplitPayment_$1903_$",
+                          "typeIdentifier": "t_type$_t_contract$_SplitPayment_$1889_$",
                           "typeString": "type(contract SplitPayment)"
                         }
                       },
@@ -1293,7 +1293,7 @@
                       "lValueRequested": false,
                       "memberName": "claim",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1853,
+                      "referencedDeclaration": 1839,
                       "src": "718:18:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$__$returns$__$",
@@ -1330,7 +1330,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2432,
+                          "referencedDeclaration": 2418,
                           "src": "760:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1422,7 +1422,7 @@
                   "name": "whenNotPaused",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 1208,
+                  "referencedDeclaration": 1194,
                   "src": "534:13:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -1451,7 +1451,7 @@
             "scope": 52,
             "src": "510:274:0",
             "stateMutability": "nonpayable",
-            "superFunction": 1853,
+            "superFunction": 1839,
             "visibility": "public"
           }
         ],
@@ -1467,5 +1467,5 @@
   },
   "networks": {},
   "schemaVersion": "3.0.0-beta.0",
-  "updatedAt": "2018-08-30T18:27:17.076Z"
+  "updatedAt": "2018-08-30T18:53:04.010Z"
 }
