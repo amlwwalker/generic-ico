@@ -1,7 +1,7 @@
 // const web3 = require("web3")
 const EVMRevert = require("./helpers/EVMRevert")
 const chaiAsPromised = require("chai-as-promised")
-// const { advanceBlock } = require("./helpers/advanceToBlock")
+const { advanceBlock } = require("./helpers/advanceToBlock")
 const { BN } = web3.utils.BN
 
 require("chai")
@@ -11,13 +11,22 @@ require("chai")
 const Crowdsale = artifacts.require("GenericWhitelistedCrowdsale")
 const Token = artifacts.require("GenericToken")
 
-contract("Generic Whitelisted Crowdsale", async function([creator, payee0, payee1, purchaser, investor]) {
+contract("Generic Whitelisted Crowdsale", async function([
+  creator,
+  payee0,
+  payee1,
+  purchaser,
+  investor,
+  ...addresses
+]) {
+  this.timeout = 10000
+
   before(async function() {
     // await advanceBlock()
   })
 
   beforeEach(async function() {
-    const rate = new BN(1000)
+    const rate = new BN(1)
     const decimals = new BN(18)
     const totalSupplyWholeDigits = new BN(21000000)
 
@@ -63,9 +72,87 @@ contract("Generic Whitelisted Crowdsale", async function([creator, payee0, payee
     })
   })
 
+  // describe("test emits", function() {
+  //   it("should emit when whitelisting an address", function(done) {
+  //     this.crowdsale.RoleAdded({ fromBlock: 0 }).on("data", event => {
+  //       event.returnValues.operator.should.be.equal(creator)
+  //       event.returnValues.role.should.be.equal("whitelist")
+  //       done()
+  //     })
+  //     this.crowdsale.addAddressToWhitelist(creator)
+  //   })
+  // })
+
+  describe("test transaction lifecycle", function() {
+    it("should emit events across transaction lifecycle", function(done) {
+      this.crowdsale.addAddressToWhitelist(creator)
+      const value = web3.utils.toWei(new BN(1), "ether")
+
+      this.crowdsale
+        .sendTransaction({ from: creator, value })
+        .once("transactionHash", function(hash) {
+          hash.should.not.be.null
+        })
+        .once("receipt", function(receipt) {
+          receipt.should.not.be.null
+        })
+        .on("confirmation", function(confNumber, receipt) {
+          confNumber.should.not.be.null
+          receipt.should.not.be.null
+        })
+        .on("error", function(error) {
+          error.should.be.null
+        })
+        .then(function(receipt) {
+          receipt.should.not.be.null
+          done()
+        })
+    })
+  })
+
   describe("integration tests", async function() {
     it("should survive a series of calls", async function() {
-      // here
+      const toWhitelist = [payee0, payee1, purchaser, investor]
+      const blacklisted = [...addresses]
+
+      const value = web3.utils.toWei(new BN(1), "ether")
+
+      // someone gets whitelisted
+      await this.crowdsale.addAddressToWhitelist(toWhitelist[0])
+
+      // someone else tries to send money when not whitelisted
+      this.crowdsale.sendTransaction({ from: blacklisted[0], value }).should.be.rejectedWith(EVMRevert)
+
+      // whitelisted address sends funds
+      this.crowdsale.sendTransaction({ from: toWhitelist[0], value }).should.be.fulfilled
+
+      // check that tokens were issued
+      const whitelistedOneBalance = await this.token.balanceOf(toWhitelist[0])
+      await advanceBlock(web3)
+      expect(whitelistedOneBalance.eq(value)).to.be.true
+
+      // whitelisted several addresses
+      await this.crowdsale.addAddressesToWhitelist(toWhitelist.slice(1))
+
+      // send funds
+      this.crowdsale.sendTransaction({ from: toWhitelist[1], value }).should.be.fulfilled
+      this.crowdsale.sendTransaction({ from: toWhitelist[2], value }).should.be.fulfilled
+      this.crowdsale.sendTransaction({ from: toWhitelist[3], value }).should.be.fulfilled
+      await advanceBlock(web3)
+
+      const b1 = await this.token.balanceOf(toWhitelist[1])
+      const b2 = await this.token.balanceOf(toWhitelist[2])
+      const b3 = await this.token.balanceOf(toWhitelist[3])
+
+      expect(b1.eq(value)).to.be.true
+      expect(b2.eq(value)).to.be.true
+      expect(b3.eq(value)).to.be.true
+
+      // remove someone from the whitelist
+      this.crowdsale.removeAddressFromWhitelist(toWhitelist[1])
+
+      // that address sends funds
+      this.crowdsale.sendTransaction({ from: toWhitelist[1], value }).should.be.rejectedWith(EVMRevert)
     })
   })
 })
