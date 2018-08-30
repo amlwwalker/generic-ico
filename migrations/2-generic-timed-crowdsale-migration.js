@@ -22,9 +22,22 @@ module.exports = async (deployer, network, [owner]) => {
   const totalSupplyWholeDigits = new BN(21000000)
   const totalSupply = totalSupplyWholeDigits.mul(new BN(10).pow(decimals))
 
-  // await deployer.deploy(GenericToken, "GenericTimedToken", "GENTTOK", decimals, totalSupplyWholeDigits)
-  // const token = await GenericToken.deployed()
-  // await deployer.deploy(GenericTimedCrowdsale, openingTime, closingTime, rate, owner, token.address)
-  // const crowdsale = await GenericTimedCrowdsale.deployed()
-  // await token.transfer(crowdsale.address, totalSupply)
+  await deployer.deploy(
+    GenericToken,
+    "GenericTimedToken",
+    "GENTTOK",
+    decimals,
+    totalSupplyWholeDigits
+  )
+  const token = await GenericToken.deployed()
+  await deployer.deploy(
+    GenericTimedCrowdsale,
+    openingTime,
+    closingTime,
+    rate,
+    owner,
+    token.address
+  )
+  const crowdsale = await GenericTimedCrowdsale.deployed()
+  await token.transfer(crowdsale.address, totalSupply)
 }

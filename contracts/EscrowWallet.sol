@@ -7,7 +7,7 @@ import "openzeppelin-solidity/contracts/lifecycle/Pausable.sol";
 
 contract EscrowWallet is SplitPayment, Ownable, Pausable {
 
-  event Claim(address indexed payee, unit256 amount);
+  event Claim(address indexed payee, uint256 amount);
 
   constructor(
     address[] _payees, 
@@ -17,11 +17,12 @@ contract EscrowWallet is SplitPayment, Ownable, Pausable {
   {}
 
   function claim() public whenNotPaused {
-    uint256 amount = totalReceived.mul(
-      shares[payee]).div(
-        totalShares).sub(
-          released[payee]
-    );
+    // uint256 amount = totalReceived.mul(
+    //   shares[payee]).div(
+    //     totalShares).sub(
+    //       released[payee]
+    // );
+    uint256 amount = 1;
     SplitPayment.claim();
     
     emit Claim(msg.sender, amount);
