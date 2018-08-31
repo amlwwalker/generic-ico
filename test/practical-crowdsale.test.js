@@ -199,7 +199,9 @@ contract("Practical Crowdsale", async function([
       console.log("investing in eth: " + increaseInEth + " vs wei " + increase)
       await this.crowdsale.sendTransaction({ from: toWhitelist[1], increase })
         .should.be.fulfilled
-      const difference = cap - this.crowdsale.weiRaised()
+      await this.crowdsale.sendTransaction({ from: toWhitelist[2], increase })
+        .should.be.fulfilled
+      const difference = cap.sub(new BN(this.crowdsale.weiRaised()))
       console.log("amount left until raise is capped " + difference)
       await this.crowdsale.sendTransaction({ from: toWhitelist[3], difference })
         .should.be.fulfilled
