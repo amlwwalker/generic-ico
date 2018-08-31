@@ -385,7 +385,7 @@
         "id": 85,
         "nodeType": "ImportDirective",
         "scope": 146,
-        "sourceUnit": 2404,
+        "sourceUnit": 2413,
         "src": "26:71:2",
         "symbolAliases": [],
         "unitAlias": ""
@@ -396,7 +396,7 @@
         "id": 86,
         "nodeType": "ImportDirective",
         "scope": 146,
-        "sourceUnit": 2020,
+        "sourceUnit": 2029,
         "src": "98:71:2",
         "symbolAliases": [],
         "unitAlias": ""
@@ -407,7 +407,7 @@
         "id": 87,
         "nodeType": "ImportDirective",
         "scope": 146,
-        "sourceUnit": 1414,
+        "sourceUnit": 1423,
         "src": "170:63:2",
         "symbolAliases": [],
         "unitAlias": ""
@@ -421,10 +421,10 @@
               "id": 88,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1413,
+              "referencedDeclaration": 1422,
               "src": "260:7:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$1413",
+                "typeIdentifier": "t_contract$_Ownable_$1422",
                 "typeString": "contract Ownable"
               }
             },
@@ -439,10 +439,10 @@
               "id": 90,
               "name": "DetailedERC20",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2019,
+              "referencedDeclaration": 2028,
               "src": "269:13:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_DetailedERC20_$2019",
+                "typeIdentifier": "t_contract$_DetailedERC20_$2028",
                 "typeString": "contract DetailedERC20"
               }
             },
@@ -457,10 +457,10 @@
               "id": 92,
               "name": "StandardToken",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2403,
+              "referencedDeclaration": 2412,
               "src": "284:13:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_StandardToken_$2403",
+                "typeIdentifier": "t_contract$_StandardToken_$2412",
                 "typeString": "contract StandardToken"
               }
             },
@@ -470,12 +470,12 @@
           }
         ],
         "contractDependencies": [
-          1413,
-          1985,
-          2019,
-          2062,
-          2094,
-          2403
+          2412,
+          2028,
+          2071,
+          2103,
+          1994,
+          1422
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -483,12 +483,12 @@
         "id": 145,
         "linearizedBaseContracts": [
           145,
-          2403,
-          1985,
-          2019,
-          2062,
-          2094,
-          1413
+          2412,
+          1994,
+          2028,
+          2071,
+          2103,
+          1422
         ],
         "name": "GenericToken",
         "nodeType": "ContractDefinition",
@@ -587,10 +587,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2421,
-                        2422
+                        2430,
+                        2431
                       ],
-                      "referencedDeclaration": 2422,
+                      "referencedDeclaration": 2431,
                       "src": "462:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -629,7 +629,7 @@
                       "name": "totalSupply_",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1904,
+                      "referencedDeclaration": 1913,
                       "src": "523:12:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -757,7 +757,7 @@
                         "lValueRequested": false,
                         "memberName": "mul",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 1268,
+                        "referencedDeclaration": 1277,
                         "src": "538:11:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
@@ -804,7 +804,7 @@
                         "name": "balances",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1902,
+                        "referencedDeclaration": 1911,
                         "src": "581:8:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
@@ -820,7 +820,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2418,
+                          "referencedDeclaration": 2427,
                           "src": "590:3:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -860,7 +860,7 @@
                       "name": "totalSupply_",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1904,
+                      "referencedDeclaration": 1913,
                       "src": "604:12:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -945,7 +945,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2418,
+                          "referencedDeclaration": 2427,
                           "src": "648:3:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -972,7 +972,7 @@
                         "name": "totalSupply_",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1904,
+                        "referencedDeclaration": 1913,
                         "src": "660:12:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -999,7 +999,7 @@
                       "name": "Transfer",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2093,
+                      "referencedDeclaration": 2102,
                       "src": "627:8:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$__$",
@@ -1081,10 +1081,10 @@
                   "name": "DetailedERC20",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 2019,
+                  "referencedDeclaration": 2028,
                   "src": "402:13:2",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_type$_t_contract$_DetailedERC20_$2019_$",
+                    "typeIdentifier": "t_type$_t_contract$_DetailedERC20_$2028_$",
                     "typeString": "type(contract DetailedERC20)"
                   }
                 },
@@ -1252,7 +1252,7 @@
         "id": 85,
         "nodeType": "ImportDirective",
         "scope": 146,
-        "sourceUnit": 2404,
+        "sourceUnit": 2413,
         "src": "26:71:2",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1263,7 +1263,7 @@
         "id": 86,
         "nodeType": "ImportDirective",
         "scope": 146,
-        "sourceUnit": 2020,
+        "sourceUnit": 2029,
         "src": "98:71:2",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1274,7 +1274,7 @@
         "id": 87,
         "nodeType": "ImportDirective",
         "scope": 146,
-        "sourceUnit": 1414,
+        "sourceUnit": 1423,
         "src": "170:63:2",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1288,10 +1288,10 @@
               "id": 88,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1413,
+              "referencedDeclaration": 1422,
               "src": "260:7:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$1413",
+                "typeIdentifier": "t_contract$_Ownable_$1422",
                 "typeString": "contract Ownable"
               }
             },
@@ -1306,10 +1306,10 @@
               "id": 90,
               "name": "DetailedERC20",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2019,
+              "referencedDeclaration": 2028,
               "src": "269:13:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_DetailedERC20_$2019",
+                "typeIdentifier": "t_contract$_DetailedERC20_$2028",
                 "typeString": "contract DetailedERC20"
               }
             },
@@ -1324,10 +1324,10 @@
               "id": 92,
               "name": "StandardToken",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2403,
+              "referencedDeclaration": 2412,
               "src": "284:13:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_StandardToken_$2403",
+                "typeIdentifier": "t_contract$_StandardToken_$2412",
                 "typeString": "contract StandardToken"
               }
             },
@@ -1337,12 +1337,12 @@
           }
         ],
         "contractDependencies": [
-          1413,
-          1985,
-          2019,
-          2062,
-          2094,
-          2403
+          2412,
+          2028,
+          2071,
+          2103,
+          1994,
+          1422
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -1350,12 +1350,12 @@
         "id": 145,
         "linearizedBaseContracts": [
           145,
-          2403,
-          1985,
-          2019,
-          2062,
-          2094,
-          1413
+          2412,
+          1994,
+          2028,
+          2071,
+          2103,
+          1422
         ],
         "name": "GenericToken",
         "nodeType": "ContractDefinition",
@@ -1454,10 +1454,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2421,
-                        2422
+                        2430,
+                        2431
                       ],
-                      "referencedDeclaration": 2422,
+                      "referencedDeclaration": 2431,
                       "src": "462:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -1496,7 +1496,7 @@
                       "name": "totalSupply_",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1904,
+                      "referencedDeclaration": 1913,
                       "src": "523:12:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -1624,7 +1624,7 @@
                         "lValueRequested": false,
                         "memberName": "mul",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 1268,
+                        "referencedDeclaration": 1277,
                         "src": "538:11:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
@@ -1671,7 +1671,7 @@
                         "name": "balances",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1902,
+                        "referencedDeclaration": 1911,
                         "src": "581:8:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
@@ -1687,7 +1687,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2418,
+                          "referencedDeclaration": 2427,
                           "src": "590:3:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1727,7 +1727,7 @@
                       "name": "totalSupply_",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1904,
+                      "referencedDeclaration": 1913,
                       "src": "604:12:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -1812,7 +1812,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 2418,
+                          "referencedDeclaration": 2427,
                           "src": "648:3:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1839,7 +1839,7 @@
                         "name": "totalSupply_",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1904,
+                        "referencedDeclaration": 1913,
                         "src": "660:12:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1866,7 +1866,7 @@
                       "name": "Transfer",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 2093,
+                      "referencedDeclaration": 2102,
                       "src": "627:8:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$__$",
@@ -1948,10 +1948,10 @@
                   "name": "DetailedERC20",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 2019,
+                  "referencedDeclaration": 2028,
                   "src": "402:13:2",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_type$_t_contract$_DetailedERC20_$2019_$",
+                    "typeIdentifier": "t_type$_t_contract$_DetailedERC20_$2028_$",
                     "typeString": "type(contract DetailedERC20)"
                   }
                 },
@@ -2357,5 +2357,5 @@
     }
   },
   "schemaVersion": "3.0.0-beta.0",
-  "updatedAt": "2018-08-30T18:53:04.013Z"
+  "updatedAt": "2018-08-31T10:56:13.298Z"
 }

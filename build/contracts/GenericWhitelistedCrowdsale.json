@@ -386,7 +386,7 @@
         "id": 148,
         "nodeType": "ImportDirective",
         "scope": 168,
-        "sourceUnit": 2063,
+        "sourceUnit": 2072,
         "src": "26:63:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -397,7 +397,7 @@
         "id": 149,
         "nodeType": "ImportDirective",
         "scope": 168,
-        "sourceUnit": 1174,
+        "sourceUnit": 1183,
         "src": "90:87:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -411,10 +411,10 @@
               "id": 150,
               "name": "WhitelistedCrowdsale",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1173,
+              "referencedDeclaration": 1182,
               "src": "219:20:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_WhitelistedCrowdsale_$1173",
+                "typeIdentifier": "t_contract$_WhitelistedCrowdsale_$1182",
                 "typeString": "contract WhitelistedCrowdsale"
               }
             },
@@ -424,11 +424,11 @@
           }
         ],
         "contractDependencies": [
-          1173,
-          1413,
-          436,
-          543,
-          841
+          1182,
+          445,
+          850,
+          552,
+          1422
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -436,11 +436,11 @@
         "id": 167,
         "linearizedBaseContracts": [
           167,
-          1173,
-          841,
-          436,
-          543,
-          1413
+          1182,
+          850,
+          445,
+          552,
+          1422
         ],
         "name": "GenericWhitelistedCrowdsale",
         "nodeType": "ContractDefinition",
@@ -495,7 +495,7 @@
                     "referencedDeclaration": 157,
                     "src": "351:6:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ERC20_$2062",
+                      "typeIdentifier": "t_contract$_ERC20_$2071",
                       "typeString": "contract ERC20"
                     }
                   }
@@ -507,10 +507,10 @@
                   "name": "Crowdsale",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 841,
+                  "referencedDeclaration": 850,
                   "src": "325:9:3",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_type$_t_contract$_Crowdsale_$841_$",
+                    "typeIdentifier": "t_type$_t_contract$_Crowdsale_$850_$",
                     "typeString": "type(contract Crowdsale)"
                   }
                 },
@@ -586,7 +586,7 @@
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_ERC20_$2062",
+                    "typeIdentifier": "t_contract$_ERC20_$2071",
                     "typeString": "contract ERC20"
                   },
                   "typeName": {
@@ -594,10 +594,10 @@
                     "id": 156,
                     "name": "ERC20",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 2062,
+                    "referencedDeclaration": 2071,
                     "src": "304:5:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ERC20_$2062",
+                      "typeIdentifier": "t_contract$_ERC20_$2071",
                       "typeString": "contract ERC20"
                     }
                   },
@@ -654,7 +654,7 @@
         "id": 148,
         "nodeType": "ImportDirective",
         "scope": 168,
-        "sourceUnit": 2063,
+        "sourceUnit": 2072,
         "src": "26:63:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -665,7 +665,7 @@
         "id": 149,
         "nodeType": "ImportDirective",
         "scope": 168,
-        "sourceUnit": 1174,
+        "sourceUnit": 1183,
         "src": "90:87:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -679,10 +679,10 @@
               "id": 150,
               "name": "WhitelistedCrowdsale",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1173,
+              "referencedDeclaration": 1182,
               "src": "219:20:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_WhitelistedCrowdsale_$1173",
+                "typeIdentifier": "t_contract$_WhitelistedCrowdsale_$1182",
                 "typeString": "contract WhitelistedCrowdsale"
               }
             },
@@ -692,11 +692,11 @@
           }
         ],
         "contractDependencies": [
-          1173,
-          1413,
-          436,
-          543,
-          841
+          1182,
+          445,
+          850,
+          552,
+          1422
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -704,11 +704,11 @@
         "id": 167,
         "linearizedBaseContracts": [
           167,
-          1173,
-          841,
-          436,
-          543,
-          1413
+          1182,
+          850,
+          445,
+          552,
+          1422
         ],
         "name": "GenericWhitelistedCrowdsale",
         "nodeType": "ContractDefinition",
@@ -763,7 +763,7 @@
                     "referencedDeclaration": 157,
                     "src": "351:6:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ERC20_$2062",
+                      "typeIdentifier": "t_contract$_ERC20_$2071",
                       "typeString": "contract ERC20"
                     }
                   }
@@ -775,10 +775,10 @@
                   "name": "Crowdsale",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 841,
+                  "referencedDeclaration": 850,
                   "src": "325:9:3",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_type$_t_contract$_Crowdsale_$841_$",
+                    "typeIdentifier": "t_type$_t_contract$_Crowdsale_$850_$",
                     "typeString": "type(contract Crowdsale)"
                   }
                 },
@@ -854,7 +854,7 @@
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_ERC20_$2062",
+                    "typeIdentifier": "t_contract$_ERC20_$2071",
                     "typeString": "contract ERC20"
                   },
                   "typeName": {
@@ -862,10 +862,10 @@
                     "id": 156,
                     "name": "ERC20",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 2062,
+                    "referencedDeclaration": 2071,
                     "src": "304:5:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ERC20_$2062",
+                      "typeIdentifier": "t_contract$_ERC20_$2071",
                       "typeString": "contract ERC20"
                     }
                   },
@@ -920,5 +920,5 @@
     }
   },
   "schemaVersion": "3.0.0-beta.0",
-  "updatedAt": "2018-08-30T18:53:04.014Z"
+  "updatedAt": "2018-08-31T10:56:13.300Z"
 }

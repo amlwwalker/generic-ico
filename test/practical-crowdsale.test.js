@@ -8,8 +8,8 @@ require("chai")
   .use(chaiAsPromised)
   .should()
 
-const Crowdsale = artifacts.require("GenericWhitelistedCrowdsale")
-const Token = artifacts.require("GenericToken")
+const PracticalCrowdsale = artifacts.require("PracticalCrowdsale")
+const PracticalToken = artifacts.require("PracticalToken")
 
 contract("Practical Crowdsale", async function([
   creator,
@@ -24,20 +24,47 @@ contract("Practical Crowdsale", async function([
   before(async function() {
     // await advanceBlock()
   })
+  //set some general constants
+  const rate = new BN(1)
+  const doll_conv = 280
+  const max_$ = 10000
+  const eth_cap = max_$ / doll_conv
+  const cap = web3.utils.toWei(new BN(eth_cap), "ether")
+
+  //calculate the softCap (value raised to lock in funds)
+  const softCap = cap.div(new BN(2)) //half the cap
+
+  const decimals = new BN(18)
+  const totalSupplyWholeDigits = new BN(21000000)
 
   beforeEach(async function() {
-    const rate = new BN(1)
-    const decimals = new BN(18)
-    const totalSupplyWholeDigits = new BN(21000000)
+    const now = Math.floor(Date.now() / 1000)
+    const day = 24 * 60 * 60
+
+    const openingTime = new BN(now)
+    const closingTime = new BN(now + 2 * day)
 
     this.totalSupply = totalSupplyWholeDigits.mul(new BN(10).pow(decimals))
-    this.token = await Token.new(
+    const latestBlock = await web3.eth.getBlock("latest")
+    console.log("block timestamp " + latestBlock.timestamp)
+    // console.log("opening time " + openingTime)
+
+    this.token = await PracticalToken.new(
       "GenericWhitelistedToken",
       "GENWLTOK",
       decimals,
       totalSupplyWholeDigits
     )
-    this.crowdsale = await Crowdsale.new(rate, creator, this.token.address)
+
+    this.crowdsale = await PracticalCrowdsale.new(
+      rate,
+      creator,
+      this.token.address,
+      cap,
+      softCap,
+      openingTime,
+      closingTime
+    )
     await this.token.transfer(this.crowdsale.address, this.totalSupply)
     await advanceBlock(web3)
   })
@@ -66,7 +93,7 @@ contract("Practical Crowdsale", async function([
     })
   })
 
-  describe("whitelisted crowdsale behaviours", async function() {
+  describe("whitelisted crowdsale behaviors", async function() {
     it("should reject purchases for non-whitelisted address", async function() {
       const value = web3.utils.toWei(new BN(1), "ether")
       this.crowdsale
@@ -82,7 +109,15 @@ contract("Practical Crowdsale", async function([
       isWhitelisted.should.be.true
     })
   })
-
+  describe("capped crowd sale behaviours", async function() {
+    //we want to test that the default is that the cap has not been reached
+    //then we want to send a transaction filling the crowdsale
+    //then test that you cannot deposit any more funds
+    it("should not have reached the cap", async function() {
+      const capReached = await this.crowdsale.capReached()
+      expect(capReached).to.be.false
+    })
+  })
   // describe("test emits", function() {
   //   it("should emit when whitelisting an address", function(done) {
   //     this.crowdsale.RoleAdded({ fromBlock: 0 }).on("data", event => {
@@ -121,40 +156,22 @@ contract("Practical Crowdsale", async function([
     })
   })
 
-  describe("integration tests", async function() {
-    it("should survive a series of calls", async function() {
-      const toWhitelist = [payee0, payee1, purchaser, investor]
-      const blacklisted = [...addresses]
-
-      const value = web3.utils.toWei(new BN(1), "ether")
-
-      // someone gets whitelisted
-      await this.crowdsale.addAddressToWhitelist(toWhitelist[0])
-
-      // someone else tries to send money when not whitelisted
-      this.crowdsale
-        .sendTransaction({ from: blacklisted[0], value })
-        .should.be.rejectedWith(EVMRevert)
-
-      // whitelisted address sends funds
-      this.crowdsale.sendTransaction({ from: toWhitelist[0], value }).should.be
-        .fulfilled
-
-      // check that tokens were issued
-      const whitelistedOneBalance = await this.token.balanceOf(toWhitelist[0])
-      await advanceBlock(web3)
-      expect(whitelistedOneBalance.eq(value)).to.be.true
-
+  describe("Integration tests", async function() {
+    const toWhitelist = [payee0, payee1, purchaser, investor]
+    const blacklisted = [...addresses]
+    const value = web3.utils.toWei(new BN(1), "ether")
+    beforeEach(async function() {
       // whitelisted several addresses
       await this.crowdsale.addAddressesToWhitelist(toWhitelist.slice(1))
 
       // send funds
-      this.crowdsale.sendTransaction({ from: toWhitelist[1], value }).should.be
-        .fulfilled
-      this.crowdsale.sendTransaction({ from: toWhitelist[2], value }).should.be
-        .fulfilled
-      this.crowdsale.sendTransaction({ from: toWhitelist[3], value }).should.be
-        .fulfilled
+      console.log("sending transaction from other whitelisted address")
+      await this.crowdsale.sendTransaction({ from: toWhitelist[1], value })
+        .should.be.fulfilled
+      await this.crowdsale.sendTransaction({ from: toWhitelist[2], value })
+        .should.be.fulfilled
+      await this.crowdsale.sendTransaction({ from: toWhitelist[3], value })
+        .should.be.fulfilled
       await advanceBlock(web3)
 
       const b1 = await this.token.balanceOf(toWhitelist[1])
@@ -164,6 +181,61 @@ contract("Practical Crowdsale", async function([
       expect(b1.eq(value)).to.be.true
       expect(b2.eq(value)).to.be.true
       expect(b3.eq(value)).to.be.true
+    })
+
+    it("should survive a series of deposits until cap is reached", async function() {
+      //so first do some deposits, as above
+      //checking cap has not been reached
+      //then do a large deposit filling the crowdsale
+      //check the cap has been reached
+      //then attempt to do another deposit
+      //should fail
+      const increase = cap.div(new BN(3))
+      const isAddressWhitelisted = await this.crowdsale.whitelist(
+        toWhitelist[1]
+      )
+      isAddressWhitelisted.should.be.true
+      const increaseInEth = web3.utils.fromWei(new BN(increase), "ether")
+      console.log("investing in eth: " + increaseInEth + " vs wei " + increase)
+      await this.crowdsale.sendTransaction({ from: toWhitelist[1], increase })
+        .should.be.fulfilled
+      const difference = cap - this.crowdsale.weiRaised()
+      console.log("amount left until raise is capped " + difference)
+      await this.crowdsale.sendTransaction({ from: toWhitelist[3], difference })
+        .should.be.fulfilled
+      const capReached = await this.crowdsale.capReached()
+      expect(capReached).to.be.true
+    })
+
+    it("should survive a series of calls", async function() {
+      // someone gets whitelisted
+      console.log("Someone gets whitelisted " + toWhitelist[0])
+      await this.crowdsale.addAddressToWhitelist(toWhitelist[0])
+
+      // someone else tries to send money when not whitelisted
+      console.log("Someone not whitelisted sends money " + blacklisted[0])
+      this.crowdsale
+        .sendTransaction({ from: blacklisted[0], value })
+        .should.be.rejectedWith(EVMRevert)
+
+      // whitelisted address sends funds
+      console.log("Someone whitelisted sends funds " + toWhitelist[0])
+      const isAddressWhitelisted = await this.crowdsale.whitelist(
+        toWhitelist[0]
+      )
+      isAddressWhitelisted.should.be.true
+
+      await this.crowdsale.sendTransaction({ from: toWhitelist[0], value })
+        .should.be.fulfilled
+
+      // check that tokens were issued
+      console.log("check whitelisted balance " + toWhitelist[0])
+      const whitelistedOneBalance = await this.token.balanceOf(toWhitelist[0])
+      await advanceBlock(web3)
+      expect(whitelistedOneBalance.eq(value)).to.be.true
+
+      // whitelisted several addresses
+      await this.crowdsale.addAddressesToWhitelist(toWhitelist.slice(1))
 
       // remove someone from the whitelist
       this.crowdsale.removeAddressFromWhitelist(toWhitelist[1])

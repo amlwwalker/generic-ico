@@ -1,4 +1,5 @@
 // const web3 = require("web3")
+const config = require("../config")
 const EVMRevert = require("./helpers/EVMRevert")
 const chaiAsPromised = require("chai-as-promised")
 const { advanceBlock } = require("./helpers/advanceToBlock")
@@ -10,7 +11,9 @@ require("chai")
 
 const Crowdsale = artifacts.require("GenericWhitelistedCrowdsale")
 const Token = artifacts.require("GenericToken")
-
+if (!config.GenericWhitelistedCrowdsale) {
+  return
+}
 contract("Generic Whitelisted Crowdsale", async function([
   creator,
   payee0,
@@ -131,13 +134,13 @@ contract("Generic Whitelisted Crowdsale", async function([
       await this.crowdsale.addAddressToWhitelist(toWhitelist[0])
 
       // someone else tries to send money when not whitelisted
-      this.crowdsale
+      await this.crowdsale
         .sendTransaction({ from: blacklisted[0], value })
         .should.be.rejectedWith(EVMRevert)
 
       // whitelisted address sends funds
-      this.crowdsale.sendTransaction({ from: toWhitelist[0], value }).should.be
-        .fulfilled
+      await this.crowdsale.sendTransaction({ from: toWhitelist[0], value })
+        .should.be.fulfilled
 
       // check that tokens were issued
       const whitelistedOneBalance = await this.token.balanceOf(toWhitelist[0])
@@ -148,12 +151,12 @@ contract("Generic Whitelisted Crowdsale", async function([
       await this.crowdsale.addAddressesToWhitelist(toWhitelist.slice(1))
 
       // send funds
-      this.crowdsale.sendTransaction({ from: toWhitelist[1], value }).should.be
-        .fulfilled
-      this.crowdsale.sendTransaction({ from: toWhitelist[2], value }).should.be
-        .fulfilled
-      this.crowdsale.sendTransaction({ from: toWhitelist[3], value }).should.be
-        .fulfilled
+      await this.crowdsale.sendTransaction({ from: toWhitelist[1], value })
+        .should.be.fulfilled
+      await this.crowdsale.sendTransaction({ from: toWhitelist[2], value })
+        .should.be.fulfilled
+      await this.crowdsale.sendTransaction({ from: toWhitelist[3], value })
+        .should.be.fulfilled
       await advanceBlock(web3)
 
       const b1 = await this.token.balanceOf(toWhitelist[1])

@@ -48,15 +48,16 @@ module.exports = async (deployer, network, [owner]) => {
     totalSupplyWholeDigits
   )
   const token = await PracticalToken.deployed()
+
   await deployer.deploy(
     PracticalCrowdsale,
     rate,
     owner,
     token.address,
     cap,
-    softCap
-    // openingTime,
-    // closingTime
+    softCap,
+    openingTime,
+    closingTime
   )
   const crowdsale = await PracticalCrowdsale.deployed()
   //the crowd sale now owns, and has full control of all the tokens
