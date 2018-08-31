@@ -1,14 +1,15 @@
 pragma solidity ^0.4.24;
 
 import "openzeppelin-solidity/contracts/token/ERC20/ERC20.sol";
-import "openzeppelin-solidity/contracts/crowdsale/Crowdsale.sol";
+// import "openzeppelin-solidity/contracts/crowdsale/Crowdsale.sol";
 import "openzeppelin-solidity/contracts/crowdsale/validation/WhitelistedCrowdsale.sol";
 import "openzeppelin-solidity/contracts/crowdsale/validation/TimedCrowdsale.sol";
 import "openzeppelin-solidity/contracts/crowdsale/validation/CappedCrowdsale.sol";
 //inherits from finalizable
 import "openzeppelin-solidity/contracts/crowdsale/distribution/RefundableCrowdsale.sol";
 
-contract PracticalCrowdsale is WhitelistedCrowdsale, CappedCrowdsale {
+contract PracticalCrowdsale is WhitelistedCrowdsale, CappedCrowdsale, TimedCrowdsale {
+
   constructor
   (
     uint256 _rate,
@@ -21,10 +22,12 @@ contract PracticalCrowdsale is WhitelistedCrowdsale, CappedCrowdsale {
   )
     Crowdsale(_rate, _wallet, _token)
     CappedCrowdsale(_cap)
-    // TimedCrowdsale(_openingTime, _closingTime)
+    TimedCrowdsale(_openingTime, _closingTime)
     // RefundableCrowdsale(_softCap)
     public
-  {}
+  {
+    require(_softCap <= _cap, "The soft cap is not less that the cap");
+  }
   //does not need to override checks as that is handled
   //by _preValidatePurchase in the parents
 }

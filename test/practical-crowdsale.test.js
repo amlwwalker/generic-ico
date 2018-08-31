@@ -1,3 +1,4 @@
+const config = require("../config")
 // const web3 = require("web3")
 const EVMRevert = require("./helpers/EVMRevert")
 const chaiAsPromised = require("chai-as-promised")
@@ -10,7 +11,9 @@ require("chai")
 
 const PracticalCrowdsale = artifacts.require("PracticalCrowdsale")
 const PracticalToken = artifacts.require("PracticalToken")
-
+if (!config.PracticalCrowdsale) {
+  return
+}
 contract("Practical Crowdsale", async function([
   creator,
   payee0,
@@ -38,11 +41,10 @@ contract("Practical Crowdsale", async function([
   const totalSupplyWholeDigits = new BN(21000000)
 
   beforeEach(async function() {
-    const now = Math.floor(Date.now() / 1000)
-    const day = 24 * 60 * 60
-
-    const openingTime = new BN(now)
-    const closingTime = new BN(now + 2 * day)
+    const block = await web3.eth.getBlock("latest")
+    console.log("block time stamp " + block.timestamp)
+    const openingTime = new BN(block.timestamp + 20) // 20 secs in the future
+    const closingTime = new BN(openingTime + 86400 * 20) // 20 days
 
     this.totalSupply = totalSupplyWholeDigits.mul(new BN(10).pow(decimals))
     const latestBlock = await web3.eth.getBlock("latest")
@@ -184,12 +186,12 @@ contract("Practical Crowdsale", async function([
     })
 
     it("should survive a series of deposits until cap is reached", async function() {
-      //so first do some deposits, as above
-      //checking cap has not been reached
-      //then do a large deposit filling the crowdsale
-      //check the cap has been reached
-      //then attempt to do another deposit
-      //should fail
+      // so first do some deposits, as above
+      // checking cap has not been reached
+      // then do a large deposit filling the crowdsale
+      // check the cap has been reached
+      // then attempt to do another deposit
+      // should fail
       const increase = cap.div(new BN(3))
       const isAddressWhitelisted = await this.crowdsale.whitelist(
         toWhitelist[1]
@@ -210,6 +212,26 @@ contract("Practical Crowdsale", async function([
     })
 
     it("should survive a series of calls", async function() {
+      // whitelisted several addresses
+      await this.crowdsale.addAddressesToWhitelist(toWhitelist.slice(1))
+
+      // send funds
+      console.log("sending transaction from other whitelisted address")
+      await this.crowdsale.sendTransaction({ from: toWhitelist[1], value })
+        .should.be.fulfilled
+      await this.crowdsale.sendTransaction({ from: toWhitelist[2], value })
+        .should.be.fulfilled
+      await this.crowdsale.sendTransaction({ from: toWhitelist[3], value })
+        .should.be.fulfilled
+      await advanceBlock(web3)
+
+      const b1 = await this.token.balanceOf(toWhitelist[1])
+      const b2 = await this.token.balanceOf(toWhitelist[2])
+      const b3 = await this.token.balanceOf(toWhitelist[3])
+
+      expect(b1.eq(value)).to.be.true
+      expect(b2.eq(value)).to.be.true
+      expect(b3.eq(value)).to.be.true
       // someone gets whitelisted
       console.log("Someone gets whitelisted " + toWhitelist[0])
       await this.crowdsale.addAddressToWhitelist(toWhitelist[0])

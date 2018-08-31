@@ -7,7 +7,7 @@
 // https://medium.com/blockchannel/walking-through-the-erc721-full-implementation-72ad72735f3c
 // */
 const config = require("../config")
-const web3 = require("web3")
+// const web3 = require("web3")
 const BN = web3.utils.BN
 const GenericToken = artifacts.require("./GenericToken.sol")
 const GenericTimedCrowdsale = artifacts.require("./GenericTimedCrowdsale.sol")
@@ -17,10 +17,11 @@ module.exports = async (deployer, network, [owner]) => {
     return
   }
 
-  const now = Math.floor(Date.now() / 1000)
-  const day = 24 * 60 * 60
-  const openingTime = new BN(now)
-  const closingTime = new BN(now + 2 * day)
+  const block = await web3.eth.getBlock("latest")
+  console.log("block time stamp " + block.timestamp)
+  const openingTime = new BN(block.timestamp + 20) // 20 secs in the future
+  console.log("opening time " + openingTime)
+  const closingTime = new BN(openingTime + 86400 * 20) // 20 days
   const rate = new BN(1000)
   const decimals = new BN(18)
   const totalSupplyWholeDigits = new BN(21000000)
@@ -35,11 +36,11 @@ module.exports = async (deployer, network, [owner]) => {
   const token = await GenericToken.deployed()
   await deployer.deploy(
     GenericTimedCrowdsale,
-    openingTime,
-    closingTime,
     rate,
     owner,
-    token.address
+    token.address,
+    openingTime,
+    closingTime
   )
   const crowdsale = await GenericTimedCrowdsale.deployed()
   await token.transfer(crowdsale.address, totalSupply)

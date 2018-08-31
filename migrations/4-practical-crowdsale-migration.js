@@ -6,7 +6,8 @@ https://medium.com/@vovakuzmenkov/full-stack-crowdfunding-smart-contract-develop
 also read
 https://medium.com/blockchannel/walking-through-the-erc721-full-implementation-72ad72735f3c
 */
-const web3 = require("web3")
+const config = require("../config")
+// const web3 = require("web3")
 const BN = web3.utils.BN
 const PracticalToken = artifacts.require("./PracticalToken.sol")
 const PracticalCrowdsale = artifacts.require("./PracticalCrowdsale.sol")
@@ -14,11 +15,14 @@ const PracticalCrowdsale = artifacts.require("./PracticalCrowdsale.sol")
 //neatly, this unpacks the first value in the addresses array past in
 //and gives it the name owner. This is cool code.
 module.exports = async (deployer, network, [owner]) => {
-  const now = Math.floor(Date.now() / 1000)
-  const day = 24 * 60 * 60
-
-  const openingTime = new BN(now + 240)
-  const closingTime = new BN(now + 2 * day)
+  if (!config.PracticalCrowdsale) {
+    return
+  }
+  const block = await web3.eth.getBlock("latest")
+  console.log("block time stamp " + block.timestamp)
+  const openingTime = new BN(block.timestamp + 20) // 20 secs in the future
+  console.log("opening time " + openingTime)
+  const closingTime = new BN(openingTime + 86400 * 20) // 20 days
   const rate = new BN(1000)
   const decimals = new BN(18)
 
