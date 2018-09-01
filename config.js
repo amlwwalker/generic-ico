@@ -1,5 +1,5 @@
 module.exports = {
-  GenericTimedCrowdsale: false,
-  GenericWhitelistedCrowdsale: true,
+  GenericTimedCrowdsale: true,
+  GenericWhitelistedCrowdsale: false,
   PracticalCrowdsale: false
 }

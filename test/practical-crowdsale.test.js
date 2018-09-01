@@ -11,6 +11,7 @@ require("chai")
 
 const PracticalCrowdsale = artifacts.require("PracticalCrowdsale")
 const PracticalToken = artifacts.require("PracticalToken")
+
 if (!config.PracticalCrowdsale) {
   return
 }

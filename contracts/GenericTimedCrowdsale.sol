@@ -2,9 +2,8 @@ pragma solidity ^0.4.24;
 
 import "openzeppelin-solidity/contracts/token/ERC20/ERC20.sol";
 import "openzeppelin-solidity/contracts/crowdsale/validation/TimedCrowdsale.sol";
-import "openzeppelin-solidity/contracts/crowdsale/validation/WhitelistedCrowdsale.sol";
 
-contract GenericTimedCrowdsale is WhitelistedCrowdsale, TimedCrowdsale {
+contract GenericTimedCrowdsale is TimedCrowdsale {
   constructor
   (
     uint256 _rate,
