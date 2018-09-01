@@ -89,7 +89,7 @@ contract("Generic Timed Crowdsale", async function([
       const closingTime = Date(closingBN.toString())
       console.log("actual start time ", openingTime)
       console.log("time now ", Date(new Date()))
-      // openingTime.should.be.beforeDate(Date(Date.now()))
+      openingTime.should.be.beforeDate(Date(Date.now()))
     })
   })
 
