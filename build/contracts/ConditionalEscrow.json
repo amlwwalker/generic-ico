@@ -228,8 +228,8 @@
           }
         ],
         "contractDependencies": [
-          1622,
-          1484
+          1484,
+          1622
         ],
         "contractKind": "contract",
         "documentation": "@title ConditionalEscrow\n@dev Base abstract escrow to only allow withdrawal if a condition is met.",
@@ -612,8 +612,8 @@
           }
         ],
         "contractDependencies": [
-          1622,
-          1484
+          1484,
+          1622
         ],
         "contractKind": "contract",
         "documentation": "@title ConditionalEscrow\n@dev Base abstract escrow to only allow withdrawal if a condition is met.",
@@ -948,5 +948,5 @@
   },
   "networks": {},
   "schemaVersion": "3.0.0-beta.0",
-  "updatedAt": "2018-09-03T11:12:20.072Z"
+  "updatedAt": "2018-09-03T12:53:59.374Z"
 }

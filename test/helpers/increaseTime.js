@@ -1,7 +1,7 @@
 const { latestTime } = require("./latestTime")
 
 // Increases ganache time by the passed duration in seconds
-function increaseTime(duration, web3) {
+function increaseTime(duration) {
   const id = Date.now()
   return new Promise((resolve, reject) => {
     web3.currentProvider.send(
@@ -36,13 +36,10 @@ function increaseTime(duration, web3) {
  *
  * @param target time in seconds
  */
-async function increaseTimeTo(target, web3) {
+async function increaseTimeTo(target) {
   const now = await latestTime(web3)
 
-  if (target < now)
-    throw Error(
-      `Cannot increase current time(${now}) to a moment in the past(${target})`
-    )
+  if (target < now) throw Error(`Cannot increase current time(${now}) to a moment in the past(${target})`)
   const diff = target - now
   return increaseTime(diff, web3)
 }

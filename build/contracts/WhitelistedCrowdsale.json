@@ -423,10 +423,10 @@
           }
         ],
         "contractDependencies": [
-          507,
-          614,
+          912,
           1484,
-          912
+          507,
+          614
         ],
         "contractKind": "contract",
         "documentation": "@title WhitelistedCrowdsale\n@dev Crowdsale in which only whitelisted users can contribute.",
@@ -741,10 +741,10 @@
           }
         ],
         "contractDependencies": [
-          507,
-          614,
+          912,
           1484,
-          912
+          507,
+          614
         ],
         "contractKind": "contract",
         "documentation": "@title WhitelistedCrowdsale\n@dev Crowdsale in which only whitelisted users can contribute.",
@@ -982,5 +982,5 @@
   },
   "networks": {},
   "schemaVersion": "3.0.0-beta.0",
-  "updatedAt": "2018-09-03T11:12:20.067Z"
+  "updatedAt": "2018-09-03T12:53:59.373Z"
 }

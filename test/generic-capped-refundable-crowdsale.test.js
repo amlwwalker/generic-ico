@@ -8,25 +8,24 @@ const { increaseTimeTo, duration } = require("./helpers/increaseTime")
 const { latestTime } = require("./helpers/latestTime")
 const chaiAsPromised = require("chai-as-promised")
 const chaiDateTime = require("chai-datetime")
-const chaiBigNumber = require("chai-bignumber")
+const bnChai = require("bn-chai")
 
-const { BN } = web3.utils.BN
+const { BN } = web3.utils
 
 require("chai")
-  .use(chaiBigNumber(BN))
+  .use(bnChai(BN))
   .use(chaiAsPromised)
   .use(chaiDateTime)
   .should()
 
-const CappedRefundableCrowdsale = artifacts.require(
-  "GenericCappedRefundableCrowdsale"
-)
+const CappedRefundableCrowdsale = artifacts.require("GenericCappedRefundableCrowdsale")
 const CappedToken = artifacts.require("GenericToken")
 
 function ether(n) {
   return new BN(web3.utils.toWei(new BN(n), "ether"))
 }
 
+global.web3 = web3
 console.log("config ", config)
 
 if (!config.GenericCappedRefundableCrowdsale) {
@@ -54,9 +53,7 @@ contract("Generic Capped/Refundable Crowdsale", async function([
   beforeEach(async function() {
     //things that need to be set before each new test is run
     const block = await web3.eth.getBlock("latest")
-    this.openingTime = new BN(block.timestamp + 10)
-    //need to get this version of opening Time working, so we can test timings properly
-    // this.openingTime = latestTime(web3) + duration.weeks(1)
+    this.openingTime = new BN((await latestTime(web3)) + duration.weeks(1))
     this.closingTime = this.openingTime.add(new BN(duration.weeks(1)))
 
     this.openingTime = new BN(this.openingTime)
@@ -66,27 +63,22 @@ contract("Generic Capped/Refundable Crowdsale", async function([
     const decimals = new BN(18)
     const totalSupplyWholeDigits = new BN(21000000)
     this.totalSupply = totalSupplyWholeDigits.mul(new BN(10).pow(decimals))
-    console.log(this.totalSupply.toString())
+    // console.log(this.totalSupply.toString())
 
-    console.log(
-      "rate " +
-        RATE +
-        " start " +
-        this.openingTime +
-        " end " +
-        this.closingTime +
-        " CAP " +
-        CAP +
-        " GOAL " +
-        GOAL
-    )
+    // console.log(
+    //   "rate " +
+    //     RATE +
+    //     " start " +
+    //     this.openingTime +
+    //     " end " +
+    //     this.closingTime +
+    //     " CAP " +
+    //     CAP +
+    //     " GOAL " +
+    //     GOAL
+    // )
     //configure the token and sale
-    this.token = await CappedToken.new(
-      "GenericCappedToken",
-      "GENCPTOK",
-      decimals,
-      totalSupplyWholeDigits
-    )
+    this.token = await CappedToken.new("GenericCappedToken", "GENCPTOK", decimals, totalSupplyWholeDigits)
     this.crowdsale = await CappedRefundableCrowdsale.new(
       RATE,
       creator,
@@ -96,7 +88,7 @@ contract("Generic Capped/Refundable Crowdsale", async function([
       CAP,
       GOAL
     )
-    console.log("adress ", this.token.address)
+    // console.log("adress ", this.token.address)
     //transfer all the tokens to the crowdsale
     await this.token.transfer(this.crowdsale.address, this.totalSupply)
   })
@@ -109,19 +101,20 @@ contract("Generic Capped/Refundable Crowdsale", async function([
 
       // //check the start block
       const s = await this.crowdsale.openingTime()
-      console.log("start time " + s.toString())
-      s.toString().should.be.equal(this.openingTime.toString())
+      // console.log("start time " + s.toString())
+      s.should.eq.BN(this.openingTime)
       // //check the end block
       const e = await this.crowdsale.closingTime()
-      e.toString().should.be.equal(this.closingTime.toString())
+      e.should.eq.BN(this.closingTime)
 
       const r = new BN(await this.crowdsale.rate())
-      r.toString().should.be.equal(RATE.toString())
+      r.should.eq.BN(RATE)
 
       const g = await this.crowdsale.goal()
-      g.toString().should.be.equal(GOAL.toString())
+      g.should.eq.BN(GOAL)
+
       const c = await this.crowdsale.cap()
-      c.toString().should.be.equal(CAP.toString())
+      c.should.eq.BN(CAP)
     })
   })
   //check that at the moment, while the sale hasn't started
@@ -129,9 +122,7 @@ contract("Generic Capped/Refundable Crowdsale", async function([
   it("should not accept payments before start", async function() {
     //todo, should this be a revert or a throw?
 
-    await this.crowdsale
-      .send(web3.utils.toWei(new BN(1), "ether"))
-      .should.be.rejectedWith(EVMRevert)
+    await this.crowdsale.send(web3.utils.toWei(new BN(1), "ether")).should.be.rejectedWith(EVMRevert)
     await this.crowdsale
       .buyTokens(investor, {
         from: investor,
@@ -151,17 +142,16 @@ contract("Generic Capped/Refundable Crowdsale", async function([
 
     //this is suffering because not moving block forward successfullly yet
     //need this to pass for the following tests to pass
-    const buyTokens = await this.crowdsale.buyTokens(investor, {
+    this.crowdsale.buyTokens(investor, {
       value: investmentAmount,
       from: investor
-    })
-    buyTokens.should.be.fulfilled
+    }).should.be.fulfilled
 
     const balanceOf = await this.token.balanceOf(investor)
     balanceOf.toString().should.be.equal(expectedTokenAmount.toString())
 
-    const totalSupply = await this.token.totalSupply()
-    totalSupply.toString().should.be.equal(expectedTokenAmount.toString())
+    // const totalSupply = await this.token.totalSupply()
+    // totalSupply.toString().should.be.equal(expectedTokenAmount.toString())
   })
 
   it("should reject payments after end", async function() {
@@ -169,10 +159,7 @@ contract("Generic Capped/Refundable Crowdsale", async function([
     //not sure this is doing what i think it is...
     await increaseTimeTo(this.afterClosingTime, web3)
     await expectThrow(this.crowdsale.send(ether(1)), EVMRevert)
-    await expectThrow(
-      this.crowdsale.buyTokens(investor, { value: ether(1), from: investor }),
-      EVMRevert
-    )
+    await expectThrow(this.crowdsale.buyTokens(investor, { value: ether(1), from: investor }), EVMRevert)
     // await this.crowdsale.send(ether(1)).should.be.rejectedWith(EVMThrow)
     // await this.crowdsale
     //   .buyTokens(investor, { value: ether(1), from: investor })
@@ -180,11 +167,9 @@ contract("Generic Capped/Refundable Crowdsale", async function([
   })
 
   it("should deny refunds after end if goal was reached", async function() {
-    // await advanceBlock(web3)
+    await increaseTimeTo(this.openingTime, web3)
     await this.crowdsale.sendTransaction({ value: GOAL, from: investor })
-    await advanceToBlock(this.endBlock - 10)
-    await this.crowdsale
-      .claimRefund({ from: investor })
-      .should.be.rejectedWith(EVMRevert)
+    await advanceToBlock(this.endBlock + 10)
+    this.crowdsale.claimRefund({ from: investor }).should.be.rejectedWith(EVMRevert)
   })
 })

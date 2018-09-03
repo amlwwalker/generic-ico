@@ -335,9 +335,9 @@
           }
         ],
         "contractDependencies": [
-          1622,
           1484,
-          1515
+          1515,
+          1622
         ],
         "contractKind": "contract",
         "documentation": "@title RefundEscrow\n@dev Escrow that holds funds for a beneficiary, deposited from multiple parties.\nThe contract owner may close the deposit period, and allow for either withdrawal\nby the beneficiary, or refunds to the depositors.",
@@ -2024,9 +2024,9 @@
           }
         ],
         "contractDependencies": [
-          1622,
           1484,
-          1515
+          1515,
+          1622
         ],
         "contractKind": "contract",
         "documentation": "@title RefundEscrow\n@dev Escrow that holds funds for a beneficiary, deposited from multiple parties.\nThe contract owner may close the deposit period, and allow for either withdrawal\nby the beneficiary, or refunds to the depositors.",
@@ -3636,5 +3636,5 @@
   },
   "networks": {},
   "schemaVersion": "3.0.0-beta.0",
-  "updatedAt": "2018-09-03T11:12:20.076Z"
+  "updatedAt": "2018-09-03T12:53:59.412Z"
 }

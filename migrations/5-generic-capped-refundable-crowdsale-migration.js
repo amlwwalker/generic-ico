@@ -1,9 +1,7 @@
 const config = require("../config")
 const BN = web3.utils.BN
 const GenericToken = artifacts.require("./GenericToken.sol")
-const GenericCappedRefundableCrowdsale = artifacts.require(
-  "./GenericCappedRefundableCrowdsale.sol"
-)
+const GenericCappedRefundableCrowdsale = artifacts.require("./GenericCappedRefundableCrowdsale.sol")
 
 function ether(n) {
   return new BN(web3.utils.toWei(new BN(n), "ether"))
@@ -24,13 +22,7 @@ module.exports = async (deployer, network, [owner]) => {
   const openingTime = new BN(block + 60 * 60 * 24 * 7) // new BN(block.timestamp + 10)
   const closingTime = new BN(openingTime + 60 * 60 * 24 * 7) //new BN(block.timestamp + 200)
 
-  await deployer.deploy(
-    GenericToken,
-    "GenericTimedToken",
-    "GENTTOK",
-    decimals,
-    totalSupplyWholeDigits
-  )
+  await deployer.deploy(GenericToken, "GenericTimedToken", "GENTTOK", decimals, totalSupplyWholeDigits)
   const token = await GenericToken.deployed()
   await deployer.deploy(
     GenericCappedRefundableCrowdsale,

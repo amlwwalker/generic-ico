@@ -371,10 +371,10 @@
           }
         ],
         "contractDependencies": [
-          1217,
-          960,
-          1484,
           912,
+          960,
+          1217,
+          1484,
           1760
         ],
         "contractKind": "contract",
@@ -1710,10 +1710,10 @@
           }
         ],
         "contractDependencies": [
-          1217,
-          960,
-          1484,
           912,
+          960,
+          1217,
+          1484,
           1760
         ],
         "contractKind": "contract",
@@ -2979,5 +2979,5 @@
   },
   "networks": {},
   "schemaVersion": "3.0.0-beta.0",
-  "updatedAt": "2018-09-03T11:12:20.063Z"
+  "updatedAt": "2018-09-03T12:53:59.400Z"
 }

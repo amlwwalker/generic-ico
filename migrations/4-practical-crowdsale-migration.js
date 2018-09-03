@@ -44,13 +44,7 @@ module.exports = async (deployer, network, [owner]) => {
   //calculate the softCap (value raised to lock in funds)
   const softCap = cap.div(new BN(2)) //half the cap
   console.log("soft cap: " + softCap)
-  await deployer.deploy(
-    PracticalToken,
-    "PracticalToken",
-    "PRACT",
-    decimals,
-    totalSupplyWholeDigits
-  )
+  await deployer.deploy(PracticalToken, "PracticalToken", "PRACT", decimals, totalSupplyWholeDigits)
   const token = await PracticalToken.deployed()
 
   await deployer.deploy(
