@@ -310,9 +310,9 @@
           }
         ],
         "contractDependencies": [
-          2056,
           2133,
-          2165
+          2165,
+          2056
         ],
         "contractKind": "contract",
         "documentation": "@title Standard ERC20 token\n * @dev Implementation of the basic standard token.\nhttps://github.com/ethereum/EIPs/issues/20\nBased on code by FirstBlood: https://github.com/Firstbloodio/token/blob/master/smart_contract/FirstBloodToken.sol",
@@ -3583,9 +3583,9 @@
           }
         ],
         "contractDependencies": [
-          2056,
           2133,
-          2165
+          2165,
+          2056
         ],
         "contractKind": "contract",
         "documentation": "@title Standard ERC20 token\n * @dev Implementation of the basic standard token.\nhttps://github.com/ethereum/EIPs/issues/20\nBased on code by FirstBlood: https://github.com/Firstbloodio/token/blob/master/smart_contract/FirstBloodToken.sol",
@@ -6779,5 +6779,5 @@
   },
   "networks": {},
   "schemaVersion": "3.0.0-beta.0",
-  "updatedAt": "2018-09-03T08:47:16.525Z"
+  "updatedAt": "2018-09-03T11:12:20.090Z"
 }

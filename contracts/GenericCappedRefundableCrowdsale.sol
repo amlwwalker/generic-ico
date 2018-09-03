@@ -5,7 +5,7 @@ import "openzeppelin-solidity/contracts/crowdsale/validation/CappedCrowdsale.sol
 import "openzeppelin-solidity/contracts/crowdsale/validation/TimedCrowdsale.sol";
 import "openzeppelin-solidity/contracts/crowdsale/distribution/RefundableCrowdsale.sol";
 
-contract GenericCappedCrowdsale is CappedCrowdsale, RefundableCrowdsale {
+contract GenericCappedRefundableCrowdsale is CappedCrowdsale, RefundableCrowdsale {
 
   constructor(
     uint256 _rate,

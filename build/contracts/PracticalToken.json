@@ -470,11 +470,11 @@
           }
         ],
         "contractDependencies": [
+          2133,
+          2165,
           1484,
           2056,
-          2133,
           2090,
-          2165,
           2474
         ],
         "contractKind": "contract",
@@ -1337,11 +1337,11 @@
           }
         ],
         "contractDependencies": [
+          2133,
+          2165,
           1484,
           2056,
-          2133,
           2090,
-          2165,
           2474
         ],
         "contractKind": "contract",
@@ -2183,5 +2183,5 @@
     }
   },
   "schemaVersion": "3.0.0-beta.0",
-  "updatedAt": "2018-09-03T09:04:16.647Z"
+  "updatedAt": "2018-09-03T11:51:52.884Z"
 }

@@ -372,10 +372,10 @@
         ],
         "contractDependencies": [
           1217,
+          960,
           1484,
-          1760,
           912,
-          960
+          1760
         ],
         "contractKind": "contract",
         "documentation": "@title RefundableCrowdsale\n@dev Extension of Crowdsale contract that adds a funding goal, and\nthe possibility of users getting a refund if goal is not met.",
@@ -1711,10 +1711,10 @@
         ],
         "contractDependencies": [
           1217,
+          960,
           1484,
-          1760,
           912,
-          960
+          1760
         ],
         "contractKind": "contract",
         "documentation": "@title RefundableCrowdsale\n@dev Extension of Crowdsale contract that adds a funding goal, and\nthe possibility of users getting a refund if goal is not met.",
@@ -2979,5 +2979,5 @@
   },
   "networks": {},
   "schemaVersion": "3.0.0-beta.0",
-  "updatedAt": "2018-09-03T08:47:16.501Z"
+  "updatedAt": "2018-09-03T11:12:20.063Z"
 }

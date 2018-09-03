@@ -579,13 +579,13 @@
           }
         ],
         "contractDependencies": [
-          1128,
-          1217,
-          1244,
-          1484,
           507,
+          614,
+          1217,
+          1484,
           912,
-          614
+          1244,
+          1128
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -1215,13 +1215,13 @@
           }
         ],
         "contractDependencies": [
-          1128,
-          1217,
-          1244,
-          1484,
           507,
+          614,
+          1217,
+          1484,
           912,
-          614
+          1244,
+          1128
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -1730,5 +1730,5 @@
     }
   },
   "schemaVersion": "3.0.0-beta.0",
-  "updatedAt": "2018-09-03T09:04:16.652Z"
+  "updatedAt": "2018-09-03T11:51:52.886Z"
 }
