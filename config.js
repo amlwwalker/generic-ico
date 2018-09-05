@@ -1,6 +1,6 @@
 module.exports = {
   GenericTimedCrowdsale: false,
-  GenericCappedRefundableCrowdsale: true,
+  GenericCappedRefundableCrowdsale: false,
   GenericWhitelistedCrowdsale: false,
-  PracticalCrowdsale: false
+  PracticalCrowdsale: true
 }

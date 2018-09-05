@@ -7,8 +7,8 @@
 // https://medium.com/blockchannel/walking-through-the-erc721-full-implementation-72ad72735f3c
 // */
 const config = require("../config")
-const web3 = require("web3")
-const BN = web3.utils.BN
+// const web3 = require("web3")
+const { BN } = web3.utils
 const GenericToken = artifacts.require("./GenericToken.sol")
 const GenericWhitelistedCrowdsale = artifacts.require(
   "./GenericWhitelistedCrowdsale.sol"
